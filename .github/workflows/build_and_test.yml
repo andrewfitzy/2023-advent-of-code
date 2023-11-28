@@ -10,10 +10,16 @@ jobs:
   build-project:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout project sources
-      uses: actions/checkout@v4
-    - name: Use Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16.x'
-    - run: npm run test
+      - name: Checkout project sources
+        uses: actions/checkout@v4
+      
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      
+      - name: install dev dependencies
+        run: npm i
+      
+      - name: run the test suite
+        run: npm run test
