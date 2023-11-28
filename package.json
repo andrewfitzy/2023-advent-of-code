@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "test": "jest",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile && husky install",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.10",
+    "@types/node": "20.8.2",
+    "gts": "^5.2.0",
+    "husky": "^8.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "~5.2.0"
+  }
+}
