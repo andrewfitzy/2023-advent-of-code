@@ -8,24 +8,24 @@ export const solve = (input: Array<string>): number => {
 };
 
 export const extractNumber = (input: string): number => {
-  const map1 = new Map();
+  const numberMap = new Map();
 
-  map1.set('one', 1);
-  map1.set('two', 2);
-  map1.set('three', 3);
-  map1.set('four', 4);
-  map1.set('five', 5);
-  map1.set('six', 6);
-  map1.set('seven', 7);
-  map1.set('eight', 8);
-  map1.set('nine', 9);
+  numberMap.set('one', 1);
+  numberMap.set('two', 2);
+  numberMap.set('three', 3);
+  numberMap.set('four', 4);
+  numberMap.set('five', 5);
+  numberMap.set('six', 6);
+  numberMap.set('seven', 7);
+  numberMap.set('eight', 8);
+  numberMap.set('nine', 9);
 
   const inputArray = input.split('');
 
   const digits: Array<string> = [];
   while (inputArray.length > 0) {
     const tempString: string = inputArray.join('');
-    map1.forEach((value, key) => {
+    numberMap.forEach((value, key) => {
       if (tempString.startsWith(key)) {
         digits.push(value);
       }
