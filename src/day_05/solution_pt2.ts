@@ -44,7 +44,6 @@ const findLowestLocationNumber = async (
   const promiseList = [];
   for (const seed of seeds) {
     const tmpProm = findLowestLocationNumberForSeed(seed, almanac);
-    console.log(`${seed} let to promise ${tmpProm}`);
     promiseList.push(tmpProm);
   }
   const result: number[] = await Promise.all(promiseList);
