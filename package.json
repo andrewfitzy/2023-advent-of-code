@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",

@@ -20,7 +20,7 @@ describe('test extractNumber', () => {
 });
 
 describe('test solve', () => {
-  test('puzzle input expects something', () => {
+  test('Example input expects 142', () => {
     const input: Array<string> = [
       '1abc2',
       'pqr3stu8vwx',
@@ -30,7 +30,7 @@ describe('test solve', () => {
     expect(solve(input)).toBe(142);
   });
 
-  test('puzzle input expects something', () => {
+  test('example input expects 281', () => {
     const input: Array<string> = [
       'two1nine',
       'eightwothree',
@@ -43,7 +43,7 @@ describe('test solve', () => {
     expect(solve(input)).toBe(281);
   });
 
-  test('puzzle input expects something', () => {
+  test('puzzle input expects 54845', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(54845);

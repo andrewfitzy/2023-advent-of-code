@@ -48,7 +48,7 @@ describe('test isValidGame', () => {
 });
 
 describe('test solve', () => {
-  test('puzzle input expects something', () => {
+  test('example input expects 8', () => {
     const input: Array<string> = [
       'Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green',
       'Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue',
@@ -59,7 +59,7 @@ describe('test solve', () => {
     expect(solve(input)).toBe(8);
   });
 
-  test('puzzle input expects something', () => {
+  test('puzzle input expects 3059', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(3059);
