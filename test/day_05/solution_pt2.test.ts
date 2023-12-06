@@ -9,13 +9,10 @@ describe('test solve', () => {
     expect(result).toBe(46);
   });
 
-  /*
-   * ONLY ENABLE THIS TEST ONCE THE LOGIC IS FIXED, AT THE MOMENT THIS WILL RUN FOR MANY DAYS
-   */
-  xtest('puzzle input expects 0', async () => {
+  test('puzzle input expects 24261545', async () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     const result = await solve(input);
-    expect(result).toBe(0);
+    expect(result).toBe(24261545);
   });
 });

@@ -1,8 +1,20 @@
-type Pair = [number, number];
+export class SeedRange {
+  start: number;
+  end: number;
 
-export const solve = async (input: Array<string>) => {
+  constructor(start: number, end: number) {
+    this.start = start;
+    this.end = end;
+  }
+
+  public toString = (): string => {
+    return `SeedRange (start: ${this.start}, end: ${this.end})`;
+  };
+}
+
+export const solve = (input: Array<string>) => {
   const almanac: Map<string, string[]> = new Map();
-  const seeds: Array<Pair> = [];
+  const seeds: Array<SeedRange> = [];
   let mapName = '';
   let mapRows: string[] = [];
   for (const index of input) {
@@ -13,7 +25,7 @@ export const solve = async (input: Array<string>) => {
         .filter(seed => /^\d+$/.test(seed))
         .map(seed => parseInt(seed.trim()));
       for (let i = 0; i < tmpSeeds.length; i = i + 2) {
-        seeds.push([tmpSeeds[i], tmpSeeds[i + 1]]);
+        seeds.push(new SeedRange(tmpSeeds[i], tmpSeeds[i] + tmpSeeds[i + 1]));
       }
 
       continue;
@@ -33,80 +45,97 @@ export const solve = async (input: Array<string>) => {
     mapRows = [];
   }
   almanac.set(mapName, mapRows); //incase file doesn't end in a new line
-  const total = await findLowestLocationNumber(almanac, seeds);
+  const total = findLowestLocationNumber(almanac, seeds);
   return total;
 };
 
-const findLowestLocationNumber = async (
+const findLowestLocationNumber = (
   almanac: Map<string, string[]>,
-  seeds: Array<Pair>
+  seeds: Array<SeedRange>
 ) => {
-  const promiseList = [];
-  for (const seed of seeds) {
-    const tmpProm = findLowestLocationNumberForSeed(seed, almanac);
-    promiseList.push(tmpProm);
-  }
-  const result: number[] = await Promise.all(promiseList);
-  const lowestNumber = result.sort()[0];
-  return lowestNumber;
+  const seedToSoilMapping = processSeedsThroughStep(
+    seeds,
+    almanac.get('seed-to-soil') || []
+  );
+  const soilToFertilizerMapping = processSeedsThroughStep(
+    seedToSoilMapping,
+    almanac.get('soil-to-fertilizer') || []
+  );
+  const fertilizerToWaterMapping = processSeedsThroughStep(
+    soilToFertilizerMapping,
+    almanac.get('fertilizer-to-water') || []
+  );
+  const waterToLightMapping = processSeedsThroughStep(
+    fertilizerToWaterMapping,
+    almanac.get('water-to-light') || []
+  );
+  const lightToTemperatureMapping = processSeedsThroughStep(
+    waterToLightMapping,
+    almanac.get('light-to-temperature') || []
+  );
+  const temperatureToHumidityMapping = processSeedsThroughStep(
+    lightToTemperatureMapping,
+    almanac.get('temperature-to-humidity') || []
+  );
+  const humidityToLocationMapping = processSeedsThroughStep(
+    temperatureToHumidityMapping,
+    almanac.get('humidity-to-location') || []
+  );
+
+  const sortedResults = humidityToLocationMapping.sort((a, b) => {
+    return a.start - b.start;
+  });
+  return sortedResults[0].start;
 };
 
-const mapValue = (value: number, ranges: string[]): number => {
+/*
+ * Massive shout-out to HyperNeutrino for the solution to this problem. The following code block
+ * is taken from the GitHub solution: https://github.com/hyper-neutrino/advent-of-code/blob/main/2023/day05p2.py
+ * For more details, also see the YouTube explanation https://www.youtube.com/watch?v=NmxHw_bHhGM
+ */
+const processSeedsThroughStep = (
+  seeds: Array<SeedRange>,
+  ranges: string[]
+): Array<SeedRange> => {
   if (ranges === undefined) {
     throw Error('Expected populated array   ');
   }
-  let mapping = 0;
-  for (const range of ranges) {
-    const [destination, source, rangeLength] = range
-      .split(' ')
-      .map((rangePart: string) => parseInt(rangePart));
-    if (source <= value && value < source + rangeLength) {
-      mapping = destination + (value - source);
-      break;
+  const processedSeeds: Array<SeedRange> = [];
+  while (seeds.length > 0) {
+    const seed = seeds.shift();
+    if (seed === undefined) {
+      throw Error('Unexpected undefined seed');
     }
-    mapping = value;
-  }
-  return mapping;
-};
 
-const findLowestLocationNumberForSeed = async (
-  seed: Pair,
-  almanac: Map<string, string[]>
-) => {
-  let lowestLocation = -1;
-  const limit = seed[0] + seed[1];
-  for (let index = seed[0]; index < limit; index++) {
-    const seedToSoilMapping = mapValue(
-      index,
-      almanac.get('seed-to-soil') || []
-    );
-    const soilToFertilizerMapping = mapValue(
-      seedToSoilMapping,
-      almanac.get('soil-to-fertilizer') || []
-    );
-    const fertilizerToWaterMapping = mapValue(
-      soilToFertilizerMapping,
-      almanac.get('fertilizer-to-water') || []
-    );
-    const waterToLightMapping = mapValue(
-      fertilizerToWaterMapping,
-      almanac.get('water-to-light') || []
-    );
-    const lightToTemperatureMapping = mapValue(
-      waterToLightMapping,
-      almanac.get('light-to-temperature') || []
-    );
-    const temperatureToHumidityMapping = mapValue(
-      lightToTemperatureMapping,
-      almanac.get('temperature-to-humidity') || []
-    );
-    const humidityToLocationMapping = mapValue(
-      temperatureToHumidityMapping,
-      almanac.get('humidity-to-location') || []
-    );
-    if (lowestLocation === -1 || humidityToLocationMapping < lowestLocation) {
-      lowestLocation = humidityToLocationMapping;
+    let breakInFor = false;
+    for (const range of ranges) {
+      const [destination, source, rangeLength] = range
+        .split(' ')
+        .map((rangePart: string) => parseInt(rangePart));
+
+      const start = Math.max(seed.start, source);
+      const end = Math.min(seed.end, source + rangeLength);
+      if (start < end) {
+        processedSeeds.push(
+          new SeedRange(
+            start - source + destination,
+            end - source + destination
+          )
+        );
+        if (start > seed.start) {
+          seeds.push(new SeedRange(seed.start, start));
+        }
+        if (seed.end > end) {
+          seeds.push(new SeedRange(end, seed.end));
+        }
+        breakInFor = true;
+        break;
+      }
+    }
+    if (!breakInFor) {
+      processedSeeds.push(new SeedRange(seed.start, seed.end));
     }
   }
-  return lowestLocation;
+
+  return processedSeeds;
 };
