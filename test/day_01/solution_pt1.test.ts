@@ -1,4 +1,4 @@
-import {readFileAsStringArray} from '../utils/read_file';
+import {readFileAsStringArray} from '../test_utils/read_file';
 import {solve, extractNumber} from '../../src/day_01/solution_pt1';
 
 describe('test extractNumber', () => {
