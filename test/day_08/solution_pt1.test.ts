@@ -1,4 +1,4 @@
-import {readFileAsStringArray} from '../utils/read_file';
+import {readFileAsStringArray} from '../test_utils/read_file';
 import {solve} from '../../src/day_08/solution_pt1';
 
 describe('test solve', () => {
@@ -27,9 +27,9 @@ describe('test solve', () => {
     ];
     expect(solve(input)).toBe(6);
   });
-  test('puzzle input expects something', () => {
+  test('puzzle input expects 21389', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
-    expect(solve(input)).toBe(0);
+    expect(solve(input)).toBe(21389);
   });
 });

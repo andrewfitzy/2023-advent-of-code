@@ -1,4 +1,4 @@
-import {readFileAsStringArray} from '../utils/read_file';
+import {readFileAsStringArray} from '../test_utils/read_file';
 import {
   solve,
   isValidGame,

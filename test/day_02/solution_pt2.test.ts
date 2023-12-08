@@ -1,4 +1,4 @@
-import {readFileAsStringArray} from '../utils/read_file';
+import {readFileAsStringArray} from '../test_utils/read_file';
 import {solve, getGamePower} from '../../src/day_02/solution_pt2';
 
 describe('test isValidGame', () => {
