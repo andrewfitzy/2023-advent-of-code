@@ -8,13 +8,13 @@ export const solve = (input: Array<string>): number => {
   let total = 0;
   for (const sensorInput of sensorInputs) {
     const reversedInput = sensorInput.reverse();
-    total = total + getPreviousNumber(reversedInput);
+    total = total + getNextNumber(reversedInput);
   }
 
   return total;
 };
 
-export const getPreviousNumber = (sensorInput: number[]): number => {
+export const getNextNumber = (sensorInput: number[]): number => {
   let allZero = true;
   const nextRow: number[] = [];
   for (let i = 0; i < sensorInput.length; i++) {
@@ -33,6 +33,6 @@ export const getPreviousNumber = (sensorInput: number[]): number => {
   if (allZero) {
     return sensorInput[0];
   }
-  const nextNumber = getPreviousNumber(nextRow);
+  const nextNumber = getNextNumber(nextRow);
   return nextNumber + sensorInput[sensorInput.length - 1];
 };
