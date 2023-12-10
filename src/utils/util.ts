@@ -18,3 +18,18 @@ export const gcd = (n1: number, n2: number): number => {
 export const lcm = (n1: number, n2: number): number => {
   return (n1 * n2) / gcd(n1, n2);
 };
+
+/**
+ *
+ * @param input Converts an array of strings into a 2D array of characters.
+ * @returns a 2d array from the spplied input
+ */
+export const getInputAs2DArray = (input: Array<string>): string[][] => {
+  const _2dArray: string[][] = [];
+
+  for (const index of input) {
+    const indexArray = index.split('');
+    _2dArray.push(indexArray);
+  }
+  return _2dArray;
+};
