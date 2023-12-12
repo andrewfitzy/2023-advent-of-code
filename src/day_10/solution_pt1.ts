@@ -45,15 +45,12 @@ export const solve = (input: Array<string>): number => {
   route.push(s);
   let previous = s;
   let location = getNextFromS(s, map);
-  console.log(`${previous} moving to ${location} ${s === location}`);
   while (!s.isEqual(location)) {
     const tmpNextLocation = getNextLocation(location, previous, map);
     route.push(tmpNextLocation);
     previous = location;
     location = tmpNextLocation;
-    console.log(`COMPARE ${s} moving to ${location} ${s !== location}`);
   }
-  console.log(route);
   return route.length / 2;
 };
 
