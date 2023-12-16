@@ -1,3 +1,5 @@
+import {getInputAs2DArray} from '../utils/util';
+
 export const solve = (input: Array<string>): number => {
   const numberList: number[] = [];
   let numberBuffer: string[] = [];
@@ -31,16 +33,6 @@ export const solve = (input: Array<string>): number => {
 
   const total = numberList.reduce((partialSum, a) => partialSum + a, 0);
   return total;
-};
-
-export const getInputAs2DArray = (input: Array<string>): string[][] => {
-  const _2dArray: string[][] = [];
-
-  for (const index of input) {
-    const indexArray = index.split('');
-    _2dArray.push(indexArray);
-  }
-  return _2dArray;
 };
 
 export const getAdjacentCells = (
