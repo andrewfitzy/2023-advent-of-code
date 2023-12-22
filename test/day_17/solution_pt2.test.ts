@@ -2,7 +2,7 @@ import {readFileAsStringArray} from '../test_utils/read_file';
 import {solve} from '../../src/day_17/solution_pt2';
 
 describe('test solve', () => {
-  xtest('example input expects 0', () => {
+  test('example input expects 94', () => {
     const input: Array<string> = [
       '2413432311323',
       '3215453535623',
@@ -18,12 +18,23 @@ describe('test solve', () => {
       '2546548887735',
       '4322674655533',
     ];
-    expect(solve(input)).toBe(0);
+    expect(solve(input)).toBe(94);
   });
 
-  xtest('puzzle input expects something', () => {
+  test('example input expects 71', () => {
+    const input: Array<string> = [
+      '111111111111',
+      '999999999991',
+      '999999999991',
+      '999999999991',
+      '999999999991',
+    ];
+    expect(solve(input)).toBe(71);
+  });
+
+  test('puzzle input expects 1416', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
-    expect(solve(input)).toBe(0);
+    expect(solve(input)).toBe(1416);
   });
 });
