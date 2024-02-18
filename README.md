@@ -2,7 +2,7 @@
 
 # 2023-advent-of-code
 
-This repo contains the solutions for my path of Advent of Code 2023. I complete AoC to get familiar with a technology, its build tools and testing tools, it's kind of a mini-production type workflow I follow.
+This repo contains the solutions for my path of [Advent of Code 2023](https://adventofcode.com/2023). I complete AoC to get familiar with a technology, its build tools and testing tools, it's kind of a mini-production type workflow I follow.
 
 In this year I chose to use the following tools:
 - [TypeScript v5.2.2](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html). Language for this years AOC solutions.
@@ -11,7 +11,7 @@ In this year I chose to use the following tools:
 - [Husky v8.0.0](https://typicode.github.io/husky/). Used for pre commit hooks.
 
 
-All development was completed using [Visual Code]() which is an OK text editor, there are lots of useful plugins.
+All development was completed using [Visual Studio Code](https://code.visualstudio.com) which is an OK text editor, there are lots of useful plugins.
 
 ## Setup
 First we need to run install so that the dependencies are installed and then run the prepare script to ensure husky is setup correctly.
