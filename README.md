@@ -14,10 +14,9 @@ In this year I chose to use the following tools:
 All development was completed using [Visual Studio Code](https://code.visualstudio.com) which is an OK text editor, there are lots of useful plugins.
 
 ## Setup
-First we need to run install so that the dependencies are installed and then run the prepare script to ensure husky is setup correctly.
+First we need to run install so that the dependencies are installed and husky is setup correctly.
 ```bash
 $ npm install
-$ npm run prepare
 ```
 
 ## Building
