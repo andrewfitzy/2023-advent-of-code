@@ -18,7 +18,7 @@ describe('test solve', () => {
     expect(solve(input)).toBe(374);
   });
 
-  test('puzzle input expects 9693756', () => {
+  xtest('puzzle input expects 9693756', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(9693756);

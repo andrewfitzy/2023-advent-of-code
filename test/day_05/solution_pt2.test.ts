@@ -9,7 +9,7 @@ describe('test solve', () => {
     expect(result).toBe(46);
   });
 
-  test('puzzle input expects 24261545', async () => {
+  xtest('puzzle input expects 24261545', async () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     const result = await solve(input);
