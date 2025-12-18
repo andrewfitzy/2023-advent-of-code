@@ -19,7 +19,7 @@ jobs:
           node-version: '16.x'
       
       - name: install dev dependencies
-        run: npm i
+        run: pnpm i
       
       - name: run the test suite
-        run: npm run test
+        run: pnpm test

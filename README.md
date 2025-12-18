@@ -14,19 +14,21 @@ In this year I chose to use the following tools:
 All development was completed using [Visual Studio Code](https://code.visualstudio.com) which is an OK text editor, there are lots of useful plugins.
 
 ## Setup
-First we need to run install so that the dependencies are installed and husky is setup correctly.
+Firstly we need to install `pnpm` in our favourite way, follow the instructions [here](https://pnpm.io/installation)
+
+Once `pnpm` is installed, we need to run install so that the dependencies are installed and husky is setup correctly.
 ```bash
-$ npm install
+$ pnpm install
 ```
 
 ## Building
 ```bash
-$ npm run compile
+$ pnpm compile
 ```
 
 ## Testing
 ```bash
-$ npm run test
+$ pnpm test
 ```
 
 ## Committing

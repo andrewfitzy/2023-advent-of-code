@@ -5,9 +5,10 @@
     "clean": "gts clean",
     "compile": "tsc",
     "fix": "gts fix",
-    "prepare": "npm run compile && husky install",
-    "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "prepare": "pnpm compile && husky install",
+    "pretest": "pnpm compile",
+    "posttest": "pnpm lint",
+    "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
     "@types/jest": "^29.5.10",
