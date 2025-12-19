@@ -5,16 +5,21 @@
 This repo contains the solutions for my path of [Advent of Code 2023](https://adventofcode.com/2023). I complete AoC to get familiar with a technology, its build tools and testing tools, it's kind of a mini-production type workflow I follow.
 
 In this year I chose to use the following tools:
-- [TypeScript v5.2.2](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html). Language for this years AOC solutions.
-- [GTS v5.2.0](https://github.com/google/gts). Prettifier and linter that uses prettier and eslint under the hood. Released by Google so will be around for a while.
-- [Jest v29.7.0](https://jestjs.io/docs/getting-started). Standard unit test framework.
-- [Husky v8.0.0](https://typicode.github.io/husky/). Used for pre commit hooks.
+- [TypeScript v5.2.x](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html). Language for this years AOC solutions.
+- [GTS v5.x.x](https://github.com/google/gts). Prettifier and linter that uses prettier and eslint under the hood. Released by Google so will be around for a while.
+- [Jest v29.x.x](https://jestjs.io/docs/getting-started). Standard unit test framework.
+- [Husky v8.x.x](https://typicode.github.io/husky/). Used for pre commit hooks.
 
 
 All development was completed using [Visual Studio Code](https://code.visualstudio.com) which is an OK text editor, there are lots of useful plugins.
 
 ## Setup
-Firstly we need to install `pnpm` in our favourite way, follow the instructions [here](https://pnpm.io/installation)
+Firstly we need to install `pnpm` in our favourite way, follow the instructions [here](https://pnpm.io/installation). For my setup I did
+```bash
+$ corepack enable
+$ corepack prepare pnpm@8.15.4 --activate
+```
+The project will use pnpm v8 as it's compatible vith v16 of node - later version aren't compatible and later versions of node ar bundled with pnpm.
 
 Once `pnpm` is installed, we need to run install so that the dependencies are installed and husky is setup correctly.
 ```bash

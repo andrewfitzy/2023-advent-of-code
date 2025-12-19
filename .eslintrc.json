@@ -1,5 +1,6 @@
 {
   "extends": "./node_modules/gts/",
+  "plugins": ["node", "n"],
   "rules": {
     "node/no-unpublished-require": [
       "error", {
@@ -10,6 +11,16 @@
         "error", {
           "allowModules": ["@datastructures-js/priority-queue"]
         }
-      ]
+      ],
+    "n/no-unpublished-require": [
+      "error", {
+        "allowModules": ["robust-point-in-polygon"]
+      }
+    ],
+    "n/no-unpublished-import": [
+      "error", {
+      "allowModules": ["@datastructures-js/priority-queue"]
+    }
+    ]
   }
 }
