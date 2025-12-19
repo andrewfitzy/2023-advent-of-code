@@ -50,27 +50,27 @@ export const solve = (input: Array<string>): number => {
     const step = stepsQueue.pop();
 
     if (
-      step.row === map.length - 1 &&
-      step.column === map[0].length - 1 &&
-      step.moves >= 4
+      step!.row === map.length - 1 &&
+      step!.column === map[0].length - 1 &&
+      step!.moves >= 4
     ) {
-      total = step.heatLoss;
+      total = step!.heatLoss;
       break;
     }
 
-    if (seenStepHashes.has(step.getHash())) {
+    if (seenStepHashes.has(step!.getHash())) {
       continue;
     }
 
-    seenStepHashes.add(step.getHash());
+    seenStepHashes.add(step!.getHash());
 
     //need minimum 4 and less than 10
     if (
-      step.moves < 10 &&
-      `${step.directionRow},${step.directionColumn}` !== `${0},${0}`
+      step!.moves < 10 &&
+      `${step!.directionRow},${step!.directionColumn}` !== `${0},${0}`
     ) {
-      const nextRow = step.row + step.directionRow;
-      const nextColumn = step.column + step.directionColumn;
+      const nextRow = step!.row + step!.directionRow;
+      const nextColumn = step!.column + step!.directionColumn;
       if (
         0 <= nextRow &&
         nextRow < map.length &&
@@ -78,12 +78,12 @@ export const solve = (input: Array<string>): number => {
         nextColumn < map[0].length
       ) {
         const newStep = new Step(
-          step.heatLoss + parseInt(map[nextRow][nextColumn]),
+          step!.heatLoss + parseInt(map[nextRow][nextColumn]),
           nextRow,
           nextColumn,
-          step.directionRow,
-          step.directionColumn,
-          step.moves + 1
+          step!.directionRow,
+          step!.directionColumn,
+          step!.moves + 1
         );
         stepsQueue.enqueue(newStep);
       }
@@ -97,19 +97,19 @@ export const solve = (input: Array<string>): number => {
     ];
 
     if (
-      step.moves >= 4 ||
-      `${step.directionRow},${step.directionColumn}` === `${0},${0}`
+      step!.moves >= 4 ||
+      `${step!.directionRow},${step!.directionColumn}` === `${0},${0}`
     ) {
       for (const [nextDirectionRow, nextDirectionColumn] of possibleMoves) {
         const forwardDirectionCheck =
           `${nextDirectionRow},${nextDirectionColumn}` !==
-          `${step.directionRow},${step.directionColumn}`;
+          `${step!.directionRow},${step!.directionColumn}`;
         const backwardDirectionCheck =
           `${nextDirectionRow},${nextDirectionColumn}` !==
-          `${-step.directionRow},${-step.directionColumn}`;
+          `${-step!.directionRow},${-step!.directionColumn}`;
         if (forwardDirectionCheck && backwardDirectionCheck) {
-          const nextRow = step.row + nextDirectionRow;
-          const nextColumn = step.column + nextDirectionColumn;
+          const nextRow = step!.row + nextDirectionRow;
+          const nextColumn = step!.column + nextDirectionColumn;
           if (
             0 <= nextRow &&
             nextRow < map.length &&
@@ -117,7 +117,7 @@ export const solve = (input: Array<string>): number => {
             nextColumn < map[0].length
           ) {
             const newStep = new Step(
-              step.heatLoss + parseInt(map[nextRow][nextColumn]),
+              step!.heatLoss + parseInt(map[nextRow][nextColumn]),
               nextRow,
               nextColumn,
               nextDirectionRow,
