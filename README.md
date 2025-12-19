@@ -26,6 +26,11 @@ Once `pnpm` is installed, we need to run install so that the dependencies are in
 $ pnpm install
 ```
 
+Finally, initialise Husky with
+```bash
+$ pnpm husky install
+```
+
 ## Building
 ```bash
 $ pnpm compile
@@ -37,7 +42,7 @@ $ pnpm test
 ```
 
 ## Committing
-The pre-commit hook should kick-in, when it does it will run GTS which lints and prettifies the code
+When comitting pre-commit hook should kick-in, when it does it will run GTS which lints and prettifies the code
 ```bash
 $ git add --all
 $ git commit -a

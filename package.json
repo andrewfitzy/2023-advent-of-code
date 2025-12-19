@@ -5,7 +5,7 @@
     "clean": "gts clean",
     "compile": "tsc",
     "fix": "gts fix",
-    "prepare": "pnpm compile && husky install",
+    "prepare": "husky install && pnpm compile",
     "pretest": "pnpm compile",
     "posttest": "pnpm lint",
     "preinstall": "npx only-allow pnpm"
