@@ -1,10 +1,9 @@
 import {readFileAsStringArray} from '../test_utils/read_file';
-import {solve} from '../../src/day_xx/solution_pt2';
+import {solve} from '../../src/day_12/solution_pt2';
 
 describe('test solve', () => {
   test('example input 01 expects 0', () => {
-    const fileInput = `${__dirname}/example_input_01.txt`;
-    const input: Array<string> = readFileAsStringArray(fileInput);
+    const input: Array<string> = [];
     expect(solve(input)).toBe(0);
   });
 
