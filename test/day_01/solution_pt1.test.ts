@@ -1,5 +1,6 @@
 import {readFileAsStringArray} from '../test_utils/read_file';
 import {solve, extractNumber} from '../../src/day_01/solution_pt1';
+import {testSkipsCi} from '../test_utils/skip_ci';
 
 describe('test extractNumber', () => {
   test('1abc2 expects 12', () => {
@@ -21,16 +22,12 @@ describe('test extractNumber', () => {
 
 describe('test solve', () => {
   test('example input expects 142', () => {
-    const input: Array<string> = [
-      '1abc2',
-      'pqr3stu8vwx',
-      'a1b2c3d4e5f',
-      'treb7uchet',
-    ];
+    const fileInput = `${__dirname}/example_input_01.txt`;
+    const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(142);
   });
 
-  xtest('puzzle input expects 55090', () => {
+  testSkipsCi('puzzle input expects 55090', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(55090);

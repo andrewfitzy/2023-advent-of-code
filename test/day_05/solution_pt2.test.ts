@@ -3,7 +3,7 @@ import {solve} from '../../src/day_05/solution_pt2';
 
 describe('test solve', () => {
   test('example input expects 46', async () => {
-    const fileInput = `${__dirname}/puzzle_example.txt`;
+    const fileInput = `${__dirname}/example_input_01.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     const result = await solve(input);
     expect(result).toBe(46);

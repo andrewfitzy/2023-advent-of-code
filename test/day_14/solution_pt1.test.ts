@@ -1,5 +1,6 @@
 import {readFileAsStringArray} from '../test_utils/read_file';
 import {solve, sortLine} from '../../src/day_14/solution_pt1';
+import {testSkipsCi} from '../test_utils/skip_ci';
 
 describe('test sortLine', () => {
   test('should sort O....#....', () => {
@@ -45,22 +46,12 @@ describe('test sortLine', () => {
 
 describe('test solve', () => {
   test('example input expects 136', () => {
-    const input: Array<string> = [
-      'O....#....',
-      'O.OO#....#',
-      '.....##...',
-      'OO.#O....O',
-      '.O.....O#.',
-      'O.#..O.#.#',
-      '..O..#O..O',
-      '.......O..',
-      '#....###..',
-      '#OO..#....',
-    ];
+    const fileInput = `${__dirname}/example_input_01.txt`;
+    const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(136);
   });
 
-  xtest('puzzle input expects 105784', () => {
+  testSkipsCi('puzzle input expects 105784', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(105784);

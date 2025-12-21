@@ -4,6 +4,7 @@ import {
   getHorizontalReflectionLine,
   getVerticalReflectionLine,
 } from '../../src/day_13/solution_pt1';
+import {testSkipsCi} from '../test_utils/skip_ci';
 
 describe('test getHorizontalReflectionLine', () => {
   test('example input expects 4', () => {
@@ -63,27 +64,12 @@ describe('test getVerticalReflectionLine', () => {
 
 describe('test solve', () => {
   test('example input expects 405', () => {
-    const input: Array<string> = [
-      '#.##..##.',
-      '..#.##.#.',
-      '##......#',
-      '##......#',
-      '..#.##.#.',
-      '..##..##.',
-      '#.#.##.#.',
-      '',
-      '#...##..#',
-      '#....#..#',
-      '..##..###',
-      '#####.##.',
-      '#####.##.',
-      '..##..###',
-      '#....#..#',
-    ];
+    const fileInput = `${__dirname}/example_input_01.txt`;
+    const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(405);
   });
 
-  xtest('puzzle input expects 41859', () => {
+  testSkipsCi('puzzle input expects 41859', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(41859);

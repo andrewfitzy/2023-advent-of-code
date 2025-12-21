@@ -1,5 +1,6 @@
 import {readFileAsStringArray} from '../test_utils/read_file';
 import {solve, hashValue} from '../../src/day_15/solution_pt1';
+import {testSkipsCi} from '../test_utils/skip_ci';
 
 describe('test hashValue with HASH', () => {
   test('HASH expects 52', () => {
@@ -12,13 +13,12 @@ describe('test hashValue with HASH', () => {
 
 describe('test solve', () => {
   test('example input expects 1320', () => {
-    const input: Array<string> = [
-      'rn=1,cm-,qp=3,cm=2,qp-,pc=4,ot=9,ab=5,pc-,pc=6,ot=7',
-    ];
+    const fileInput = `${__dirname}/example_input_01.txt`;
+    const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(1320);
   });
 
-  xtest('puzzle input expects something', () => {
+  testSkipsCi('puzzle input expects something', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(514025);

@@ -4,6 +4,7 @@ import {
   getNextLocation,
   Coordinate,
 } from '../../src/day_10/solution_pt1';
+import {testSkipsCi} from '../test_utils/skip_ci';
 
 describe('test getNextLocation', () => {
   describe('test |', () => {
@@ -166,16 +167,18 @@ describe('test getNextLocation', () => {
 
 describe('test solve', () => {
   test('example input expects 4', () => {
-    const input: Array<string> = ['-L|F7', '7S-7|', 'L|7||', '-L-J|', 'L|-JF'];
+    const fileInput = `${__dirname}/example_input_01.txt`;
+    const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(4);
   });
 
   test('example input expects 8', () => {
-    const input: Array<string> = ['7-F7-', '.FJ|7', 'SJLL7', '|F--J', 'LJ.LJ'];
+    const fileInput = `${__dirname}/example_input_02.txt`;
+    const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(8);
   });
 
-  xtest('puzzle input expects 6846', () => {
+  testSkipsCi('puzzle input expects 6846', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(6846);
