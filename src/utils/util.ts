@@ -1,3 +1,36 @@
+/**
+ *
+ */
+export class Coordinate {
+  row: number;
+  column: number;
+
+  constructor(row: number, column: number) {
+    this.row = row;
+    this.column = column;
+  }
+
+  public toString = (): string => {
+    return `(${this.column}, ${this.row})`;
+  };
+
+  public isEqual(other: Coordinate) {
+    if (this.row === other.row && this.column === other.column) {
+      return true;
+    }
+    return false;
+  }
+
+  public getManhattanDistance = (other: Coordinate): number => {
+    return (
+      Math.abs(other.column - this.column) + Math.abs(other.row - this.row)
+    );
+  };
+}
+
+/**
+ *
+ */
 export enum Direction {
   LEFT,
   RIGHT,
