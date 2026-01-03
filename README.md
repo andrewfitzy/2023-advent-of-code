@@ -75,4 +75,4 @@ $ git commit -a
 | [Day 22](https://adventofcode.com/2023/day/22) | Sand Slabs                      | | |
 | [Day 23](https://adventofcode.com/2023/day/23) | A Long Walk                     | | |
 | [Day 24](https://adventofcode.com/2023/day/24) | Never Tell Me The Odds          | | |
-| [Day 25](https://adventofcode.com/2023/day/25) | Snowverload                     | | |
+| [Day 25](https://adventofcode.com/2023/day/25) | Snowverload                     | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_25/solution_pt1.ts) | |
