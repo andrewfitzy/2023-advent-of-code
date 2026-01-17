@@ -71,7 +71,7 @@ $ git commit -a
 | [Day 18](https://adventofcode.com/2023/day/18) | Lavaduct Lagoon                 | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_18/solution_pt1.ts) | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_18/solution_pt2.ts) |
 | [Day 19](https://adventofcode.com/2023/day/19) | Aplenty                         | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_19/solution_pt1.ts) | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_19/solution_pt2.ts) |
 | [Day 20](https://adventofcode.com/2023/day/20) | Pulse Propagation               | | |
-| [Day 21](https://adventofcode.com/2023/day/21) | Step Counter                    | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_21/solution_pt1.ts) | |
+| [Day 21](https://adventofcode.com/2023/day/21) | Step Counter                    | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_21/solution_pt1.ts) | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_21/solution_pt2.ts) |
 | [Day 22](https://adventofcode.com/2023/day/22) | Sand Slabs                      | | |
 | [Day 23](https://adventofcode.com/2023/day/23) | A Long Walk                     | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_23/solution_pt1.ts) | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_23/solution_pt2.ts) |
 | [Day 24](https://adventofcode.com/2023/day/24) | Never Tell Me The Odds          | | |
