@@ -31,6 +31,15 @@ class Module {
     this.inputs = [];
     this.targets = targetsList.split(',').map(x => x.trim());
   }
+
+  clone(): Module {
+    // We don't want to re-parse the string, so we manually copy properties
+    const copy = Object.create(Module.prototype);
+    Object.assign(copy, this);
+    copy.inputs = [...this.inputs];
+    copy.targets = [...this.targets];
+    return copy;
+  }
 }
 
 class State {
@@ -46,6 +55,14 @@ class State {
     this.highPulses = highPulses;
     this.lowPulses = lowPulses;
     this.state = state;
+  }
+
+  clone(): State {
+    const newMap = new Map<string, Module>();
+    this.state.forEach((module, name) => {
+      newMap.set(name, module.clone());
+    });
+    return new State(this.highPulses, this.lowPulses, newMap);
   }
 }
 
@@ -85,7 +102,7 @@ export const solve = (presses: number, input: Array<string>): number => {
 };
 
 const simulatePress = (startModule: string, state: State): State => {
-  const newState: State = structuredClone(state);
+  const newState: State = state.clone();
 
   const queue: Array<Step> = [];
   queue.push(new Step(startModule, false));
