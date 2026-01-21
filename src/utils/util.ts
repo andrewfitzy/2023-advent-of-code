@@ -58,6 +58,19 @@ export const lcm = (n1: number, n2: number): number => {
 };
 
 /**
+ * Find the Least Common Multiplier for a list of numbers.
+ * @param input
+ * @returns the LCM of a list of numbers
+ */
+export const lcmOfList = (input: Array<number>): number => {
+  let lcm = 1;
+  for (const item of input) {
+    lcm = Math.floor((lcm * item) / gcd(lcm, item));
+  }
+  return lcm;
+};
+
+/**
  *
  * @param input Converts an array of strings into a 2D array of characters.
  * @returns a 2d array from the spplied input

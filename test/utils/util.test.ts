@@ -1,10 +1,33 @@
-import {gcd, lcm, rotateStringList, Direction} from '../../src/utils/util';
+import {
+  gcd,
+  lcm,
+  lcmOfList,
+  rotateStringList,
+  Direction,
+} from '../../src/utils/util';
 
 describe('test lcm', () => {
   test('12,15 expects 60', () => {
     const n1 = 12;
     const n2 = 15;
     expect(lcm(n1, n2)).toBe(60);
+  });
+});
+
+describe('test lcm of flist', () => {
+  test('12,15 expects 60', () => {
+    const n1 = 12;
+    const n2 = 15;
+    expect(lcmOfList([n1, n2])).toBe(60);
+  });
+});
+
+describe('test lcm of flist', () => {
+  test('12,15, 18 expects 1140', () => {
+    const n1 = 12;
+    const n2 = 15;
+    const n3 = 19;
+    expect(lcmOfList([n1, n2, n3])).toBe(1140);
   });
 });
 
