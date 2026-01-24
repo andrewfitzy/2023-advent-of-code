@@ -74,5 +74,5 @@ $ git commit -a
 | [Day 21](https://adventofcode.com/2023/day/21) | Step Counter                    | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_21/solution_pt1.ts) | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_21/solution_pt2.ts) |
 | [Day 22](https://adventofcode.com/2023/day/22) | Sand Slabs                      | | |
 | [Day 23](https://adventofcode.com/2023/day/23) | A Long Walk                     | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_23/solution_pt1.ts) | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_23/solution_pt2.ts) |
-| [Day 24](https://adventofcode.com/2023/day/24) | Never Tell Me The Odds          | | |
+| [Day 24](https://adventofcode.com/2023/day/24) | Never Tell Me The Odds          | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_24/solution_pt1.ts) | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_24/solution_pt2.ts) |
 | [Day 25](https://adventofcode.com/2023/day/25) | Snowverload                     | [🌟](https://github.com/andrewfitzy/2023-advent-of-code/blob/main/src/day_25/solution_pt1.ts) | |

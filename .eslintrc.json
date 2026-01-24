@@ -9,7 +9,7 @@
     ],
     "node/no-unpublished-import": [
         "error", {
-          "allowModules": ["@datastructures-js/priority-queue"]
+          "allowModules": ["@datastructures-js/priority-queue", "nerdamer-prime"]
         }
       ],
     "n/no-unpublished-require": [
@@ -19,7 +19,7 @@
     ],
     "n/no-unpublished-import": [
       "error", {
-      "allowModules": ["@datastructures-js/priority-queue"]
+      "allowModules": ["@datastructures-js/priority-queue", "nerdamer-prime"]
     }
     ]
   }

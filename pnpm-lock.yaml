@@ -32,6 +32,9 @@ importers:
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.8.2)
+      nerdamer-prime:
+        specifier: 1.1.23
+        version: 1.1.23
       robust-point-in-polygon:
         specifier: 1.0.3
         version: 1.0.3
@@ -2827,6 +2830,11 @@ packages:
 
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+    dev: true
+
+  /nerdamer-prime@1.1.23:
+    resolution: {integrity: sha512-oWS1C7NL74oaHDlW4GmGCOksqyl8EADRAuY+Do6TqkVpapi1tjKCLQJLFbPy8MvP33BQjdgxTfMIPmSMtvqUjw==}
+    engines: {node: '>=0.10.0'}
     dev: true
 
   /node-int64@0.4.0:
