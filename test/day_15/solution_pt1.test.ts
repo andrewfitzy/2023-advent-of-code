@@ -18,7 +18,7 @@ describe('test solve', () => {
     expect(solve(input)).toBe(1320);
   });
 
-  testSkipsCi('puzzle input expects something', () => {
+  testSkipsCi('puzzle input expects 514025', () => {
     const fileInput = `${__dirname}/puzzle_input.txt`;
     const input: Array<string> = readFileAsStringArray(fileInput);
     expect(solve(input)).toBe(514025);
