@@ -23,7 +23,7 @@ jobs:
           version: 8.15.4
       
       - name: install dev dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm i
       
       - name: run the test suite
         run: pnpm test
